@@ -51,6 +51,7 @@ android {
         targetSdkVersion 29
         Integer buildNumb = System.getenv("BITRISE_BUILD_NUMBER") as Integer
         versionCode buildNumb ?: 1
+        versionName "1.0.0"
         ndk {
             abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
         }
