@@ -1,0 +1,5 @@
+FLUTTER_FLAVOR=Development
+PRODUCT_BUNDLE_IDENTIFIER=todoapp.testapptest
+DISPLAY_NAME=Flavor Dev
+FLUTTER_TARGET=lib/utils/dev.dart
+ASSETCATALOG_COMPILER_APPICON_NAME=AppIcon-development

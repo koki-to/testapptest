@@ -58,6 +58,23 @@ android {
         
     }
 
+    flavorDimensions "default"
+    productFlavors {
+        development {
+            dimension "default"
+            applicationIdSuffix ".stg"
+            versionNameSuffix ".stg"
+        }
+        staging {
+            dimension "default"
+            applicationIdSuffix ".stg"
+            versionNameSuffix ".stg"
+        }
+        production {
+            dimension "default"
+        }
+    }
+
     signingConfigs {
         release {
             if (System.getenv('IS_BITRISE')) {

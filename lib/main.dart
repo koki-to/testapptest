@@ -1,7 +1,28 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:testapptest/utils/flavor.dart';
+import 'package:testapptest/utils/utility.dart';
+
+void mainDelegate(Flavor flavor) {
+  WidgetsFlutterBinding.ensureInitialized();
+  runZoned(() {
+    Utility.init().then((e) {
+      runApp(FlavorProvider(
+        flavor: flavor,
+        child: MyApp(),
+      ));
+    });
+  });
+}
 
 void main() {
-  runApp(MyApp());
+  //mainがないとbitriseでエラーが起きるので追加しておく。
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor:
+        SystemUiOverlayStyle.dark.systemNavigationBarDividerColor,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -59,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter = _counter * 2;
     });
   }
 
